@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">sistema_empleados</string>
+
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_contrasena">Contraseña</string>
+    <string name="btn_ingresar">Ingresar</string>
+    <string name="btn_registrar">Crear cuenta nueva</string>
+    <string name="titulo_login">Bienvenido al Sistema</string>
+    <string name="titulo_registro">Crear Nueva Cuenta</string>
+    <string name="hint_nuevo_correo">Ingrese un correo válido</string>
+    <string name="hint_nueva_contrasena">Contraseña (mínimo 6 caracteres)</string>
+    <string name="btn_confirmar_registro">Confirmar Registro</string>
+    <string name="titulo_menu">Panel de Control</string>
+    <string name="btn_agregar_empleado">Agregar Nuevo Empleado</string>
+    <string name="btn_ver_nomina">Ver Nómina Completa</string>
+    <string name="titulo_agregar">Nuevo Empleado</string>
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="hint_puesto">Puesto / Cargo</string>
+    <string name="hint_salario">Salalario del empleado</string>
+    <string name="btn_guardar_empleado">Guardar Empleado</string>
+</resources>

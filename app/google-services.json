@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "453084606228",
+    "project_id": "sistemaempleados-37249",
+    "storage_bucket": "sistemaempleados-37249.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453084606228:android:ddb5c707db9e6f235b1c01",
+        "android_client_info": {
+          "package_name": "com.example.sistema_empleados"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3g4LvGTdk2dHzupNjZbAzNGwooCnrN9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
