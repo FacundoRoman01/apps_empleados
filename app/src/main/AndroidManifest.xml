@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sistema_empleados">
         <activity
+            android:name=".EditarEmpleadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListaEmpleadosActivity"
+            android:exported="false" />
+        <activity
             android:name=".AgregarEmpleadoActivity"
             android:exported="false" />
         <activity

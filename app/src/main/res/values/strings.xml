@@ -18,4 +18,8 @@
     <string name="hint_puesto">Puesto / Cargo</string>
     <string name="hint_salario">Salalario del empleado</string>
     <string name="btn_guardar_empleado">Guardar Empleado</string>
+    <string name="titulo_lista">Lista de Empleados</string>
+    <string name="titulo_editar">Modificar Empleado</string>
+    <string name="btn_actualizar_empleado">Guardar Cambios</string>
+    <string name="btn_eliminar_empleado">Eliminar Empleado</string>
 </resources>

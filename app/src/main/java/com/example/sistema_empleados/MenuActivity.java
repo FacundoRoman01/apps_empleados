@@ -33,10 +33,12 @@ public class MenuActivity extends AppCompatActivity {
         });
 
         // parA ver la lista
+
         btnIrLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MenuActivity.this, "Próximamente: Pantalla Lista", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MenuActivity.this, ListaEmpleadosActivity.class);
+                startActivity(intent);
             }
         });
     }
