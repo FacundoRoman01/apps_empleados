@@ -11,25 +11,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class AgregarEmpleadoActivity extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
 
+public class AgregarEmpleadoActivity extends AppCompatActivity {
 
     private EditText etNombre, etPuesto, etSalario;
     private Button btnGuardar;
 
-
     private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_empleado);
 
-        // Inicializar Firestore
+        // Firestore y Auth
         db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         // Vincular XML con Java
         etNombre = findViewById(R.id.etNombre);
@@ -51,7 +55,6 @@ public class AgregarEmpleadoActivity extends AppCompatActivity {
         String puesto = etPuesto.getText().toString().trim();
         String salario = etSalario.getText().toString().trim();
 
-
         if (nombre.isEmpty()) {
             etNombre.setError("El nombre es obligatorio");
             return;
@@ -66,29 +69,40 @@ public class AgregarEmpleadoActivity extends AppCompatActivity {
         }
 
 
-        Empleado nuevoEmpleado = new Empleado("", nombre, puesto, salario);
+        if (mAuth.getCurrentUser() != null) {
 
 
-        db.collection("empleados")
-                .add(nuevoEmpleado)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
+            String idUsuarioActual = mAuth.getCurrentUser().getUid();
 
-                        Toast.makeText(AgregarEmpleadoActivity.this, "Empleado guardado con éxito", Toast.LENGTH_SHORT).show();
 
-                        // se limpia los campos asi podemos agregar otro empleadosss
-                        etNombre.setText("");
-                        etPuesto.setText("");
-                        etSalario.setText("");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+            Map<String, Object> empleadoMap = new HashMap<>();
+            empleadoMap.put("nombre", nombre);
+            empleadoMap.put("puesto", puesto);
+            empleadoMap.put("salario", salario);
+            empleadoMap.put("id_usuario", idUsuarioActual);
 
-                        Toast.makeText(AgregarEmpleadoActivity.this, "Error al guardar: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
+            // 3. Lo guardamos en Firestore
+            db.collection("empleados")
+                    .add(empleadoMap)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(AgregarEmpleadoActivity.this, "Empleado guardado con éxito", Toast.LENGTH_SHORT).show();
+
+                            // Limpiamos los campos
+                            etNombre.setText("");
+                            etPuesto.setText("");
+                            etSalario.setText("");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AgregarEmpleadoActivity.this, "Error al guardar: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "Error: Sesión no válida", Toast.LENGTH_SHORT).show();
+        }
     }
 }

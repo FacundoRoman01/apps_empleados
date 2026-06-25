@@ -1,42 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="32dp"
-    android:gravity="center">
+    android:background="@color/mi_color_fondo"
+    android:fillViewport="true">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/titulo_registro"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="32dp"/>
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center">
 
-    <EditText
-        android:id="@+id/etNuevoCorreo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_nuevo_correo"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:layout_marginBottom="16dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_registro"
+            android:textSize="28sp"
+            android:textColor="@color/mi_color_texto_titulo"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="24dp"/>
 
-    <EditText
-        android:id="@+id/etNuevaContrasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_nueva_contrasena"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:layout_marginBottom="24dp"/>
+        <EditText
+            android:id="@+id/etNombreApellido"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Nombre y Apellido"
+            android:textColorHint="#808080"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/mi_color_boton"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp"/>
 
-    <Button
-        android:id="@+id/btnConfirmarRegistro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_confirmar_registro"/>
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Teléfono"
+            android:textColorHint="#808080"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/mi_color_boton"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/etNuevoCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="@string/hint_nuevo_correo"
+            android:textColorHint="#808080"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/mi_color_boton"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etNuevaContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="@string/hint_nueva_contrasena"
+            android:textColorHint="#808080"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/mi_color_boton"
+            android:inputType="textPassword"
+            android:layout_marginBottom="40dp"/>
+
+        <Button
+            android:id="@+id/btnConfirmarRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/btn_confirmar_registro"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/mi_color_boton"/>
+
+    </LinearLayout>
+</ScrollView>

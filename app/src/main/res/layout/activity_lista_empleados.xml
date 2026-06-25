@@ -4,21 +4,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/mi_color_fondo"> <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/titulo_lista"
-    android:textSize="24sp"
-    android:textStyle="bold"
-    android:gravity="center"
-    android:layout_marginBottom="16dp"
-    android:layout_marginTop="16dp"/>
+    android:background="@color/mi_color_fondo">
 
-    <ListView
-        android:id="@+id/listViewEmpleados"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="#CCCCCC"
-        android:dividerHeight="1dp"/>
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_lista"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/mi_color_texto_titulo"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="16dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listViewEmpleados"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#333333"
+            android:dividerHeight="1dp"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"/>
+
+        <TextView
+            android:id="@+id/tvVacio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aún no tenés empleados en tu nómina.\n¡Agregá el primero desde el menú principal!"
+            android:textColor="#A0A0A0"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:visibility="gone"/>
+    </FrameLayout>
 
 </LinearLayout>
